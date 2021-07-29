@@ -5,7 +5,7 @@ on:
 
 jobs:
   Test:
-    runs_on: ubuntu-lastest
+    runs_on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
