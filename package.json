@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "testcafe chrome:headless ./pom/tests/todayTask.test.js",
-    "test-smoke": "testcafe chrome ./pom/tests --test-meta type=smoke --reporter allure",
-    "test-projects": "testcafe chrome ./pom/tests/projects.test.js",
+    "test-smoke": "testcafe chrome:headless ./pom/tests --test-meta type=smoke --reporter allure",
+    "test-projects": "testcafe chrome:headless ./pom/tests/projects.test.js",
     "test-task": "testcafe chrome:headless ./pom/tests/todayTask.test.js",
     "test-login": "testcafe chrome:headless,firefox:headless ./pom/tests/login.test.js",
     "test-api": "newman run './api_testing/Todoist-API.postman_collection.json' -e './api_testing/Todoist-API-Varibles.postman_environment.json'"
