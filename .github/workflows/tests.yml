@@ -13,4 +13,7 @@ jobs:
           node-version: '14.x'
       - run: npm install
       - run: npm ci
-      - run: npm run test-task
+      - run: npm run test-login
+    environment: 
+      - name: production_environment
+      - url: https://todoist.com/users/showlogin
