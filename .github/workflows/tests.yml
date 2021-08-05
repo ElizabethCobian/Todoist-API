@@ -13,4 +13,4 @@ jobs:
           node-version: '14.x'
       - run: npm install
       - run: npm ci
-      - run: npm run 
+      - run: npm run lint
