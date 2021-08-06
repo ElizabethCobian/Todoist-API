@@ -4,6 +4,7 @@
   "description": "Bootcamp Todoist Frontend ",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./pom",
     "test": "testcafe chrome:headless ./pom/tests/todayTask.test.js",
     "test-smoke": "testcafe chrome:headless ./pom/tests --test-meta type=smoke --reporter allure",
     "test-projects": "testcafe chrome:headless ./pom/tests/projects.test.js",
@@ -27,5 +28,9 @@
   "bugs": {
     "url": "https://github.com/ElizabethCobian/Todoist-Frontend/issues"
   },
-  "homepage": "https://github.com/ElizabethCobian/Todoist-Frontend#readme"
+  "homepage": "https://github.com/ElizabethCobian/Todoist-Frontend#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-testcafe": "^0.2.1"
+  }
 }
