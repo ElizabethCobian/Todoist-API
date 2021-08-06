@@ -84,11 +84,22 @@
 											"",
 											"// Validate if the project name is correct ",
 											"pm.test(\"The project name is correct\", function () {",
-											"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"projectName\"));",
+											"    pm.expect(jsonData.name).to.eql(name);",
 											"});",
 											"",
 											"//Saving my project ID in a variable",
-											"pm.environment.set(\"projectId\", jsonData.id);"
+											"pm.environment.set(\"projectId\", jsonData.id);",
+											"",
+											"pm.environment.unset(\"projectName\");"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"projectName\", \"Bootcamp\")"
 										],
 										"type": "text/javascript"
 									}
@@ -164,7 +175,7 @@
 											"",
 											"// Validate if the project name is correct ",
 											"pm.test(\"The project ID is correct\", function () {",
-											"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"projectId\"));",
+											"    pm.expect(jsonData.id).to.eql(id);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -356,7 +367,6 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"",
 							""
 						]
 					}
@@ -705,8 +715,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"//Checking the reponse time less than 500ms",
-							"pm.test(\"Response time is less than 500ms\", function () {",
-							"   pm.expect(pm.response.responseTime).to.be.below(500);",
+							"pm.test(\"Response time is less than 700ms\", function () {",
+							"   pm.expect(pm.response.responseTime).to.be.below(700);",
 							"});"
 						]
 					}
