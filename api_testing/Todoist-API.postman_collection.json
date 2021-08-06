@@ -377,8 +377,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"//Checking the reponse time less than 500ms",
-							"pm.test(\"Response time is less than 700ms\", function () {",
-							"   pm.expect(pm.response.responseTime).to.be.below(700);",
+							"pm.test(\"Response time is less than 900ms\", function () {",
+							"   pm.expect(pm.response.responseTime).to.be.below(900);",
 							"});"
 						]
 					}
