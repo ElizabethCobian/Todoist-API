@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/ElizabethCobian/Todoist-Frontend/issues"
   },
-  "homepage": "https://github.com/ElizabethCobian/Todoist-Frontend#readme"
+  "homepage": "https://github.com/ElizabethCobian/Todoist-Frontend#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
 }
