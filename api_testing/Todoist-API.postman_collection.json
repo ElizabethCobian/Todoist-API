@@ -398,7 +398,7 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"pm.environment.set(\"projectTask\", 2271274092)"
+									"pm.environment.set(\"projectTask\", 2271350903)"
 								],
 								"type": "text/javascript"
 							}
@@ -440,7 +440,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"content\": \"My task\", \n    \"due_string\": \"tomorrow at 12:00\",\n    \"due_lang\": \"en\", \n    \"priority\": 4,\n    \"project_id\": 2271274092\n}"
+							"raw": "{\n    \"content\": \"My task\", \n    \"due_string\": \"tomorrow at 12:00\",\n    \"due_lang\": \"en\", \n    \"priority\": 4,\n    \"project_id\": 2271350903\n}"
 						},
 						"url": {
 							"raw": "{{baseTaskURL}}",
@@ -708,7 +708,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(403);",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -720,7 +722,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "",
+											"value": "2",
 											"type": "string"
 										}
 									]
@@ -752,7 +754,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"response should be a Bad Request\", function () {",
+											"    pm.response.to.be.badRequest;",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -769,7 +777,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"content\": \"\", \n    \"due_string\": \"tomorrow at 12:00\",\n    \"due_lang\": \"en\", \n    \"priority\": 4,\n    \"project_id\": 2270465310\n}"
+									"raw": "{\n    //\"content\": \" \", \n    \"due_string\": \"tomorrow at 12:00\",\n    \"due_lang\": \"en\", \n    \"priority\": 4,\n    \"project_id\": 2270465310\n}"
 								},
 								"url": {
 									"raw": "{{baseTaskURL}}",
@@ -787,7 +795,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -821,7 +831,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"response should be a Bad Request\", function () {",
+											"    pm.response.to.be.notFound;",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -858,7 +874,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"response should be a Bad Request\", function () {",
+											"    pm.response.to.be.badRequest;",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -905,7 +927,18 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"var jsonData = pm.response.json()",
+											"",
+											"// Validate if the project was created with a 200",
+											"pm.test(\"The project was succesully created\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"//Saving my task ID in a variable",
+											"pm.environment.set(\"taskID\", jsonData.id);",
+											"",
+											"//Cleaning variable",
+											"pm.environment.unset(\"projectTask\");"
 										],
 										"type": "text/javascript"
 									}
@@ -940,7 +973,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -975,7 +1010,10 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"//Validate the updte was correct",
+											"pm.test(\"Status code is 2xx\", function () {",
+											"    pm.response.to.be.success;",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -1009,7 +1047,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"response should be a Bad Request\", function () {",
+											"    pm.response.to.be.badRequest;",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -1049,7 +1093,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(403);",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -1095,7 +1141,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"response should be a Bad Request\", function () {",
+											"    pm.response.to.be.badRequest;",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -1151,6 +1203,21 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"",
+											"pm.test(\"response should be a Bad Request\", function () {",
+											"    pm.response.to.be.notFound;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
 											""
 										],
 										"type": "text/javascript"
@@ -1186,7 +1253,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 204 No Content\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -1245,7 +1314,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"response should be a Bad Request\", function () {",
+											"    pm.response.to.be.badRequest;",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -1298,6 +1373,29 @@
 							"response": []
 						}
 					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"//Checking the reponse time less than 500ms",
+							"pm.test(\"Response time is less than 700ms\", function () {",
+							"   pm.expect(pm.response.responseTime).to.be.below(700);",
+							"});"
+						]
+					}
 				}
 			]
 		}
